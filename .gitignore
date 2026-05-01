@@ -1,0 +1,10 @@
+/node_modules
+/venv
+.env
+/docs
+/bot_asamalari
+/web/node_modules
+/web/dist
+backend/data/*.db
+__pycache__/
+*.pyc
