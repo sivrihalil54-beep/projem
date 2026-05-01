@@ -10,15 +10,39 @@ from utils.gmail_otp import fetch_vfs_otp_from_config_async
 
 
 class GmailOtpStep(BaseStep):
+    ADIM = "GMAIL_OTP"
+
     def __init__(self, config: ConfigManager) -> None:
         super().__init__()
         self._config = config
 
     async def run(self) -> Optional[str]:
-        self._log.info("Gmail OTP IMAP adimi basladi.")
-        otp = await fetch_vfs_otp_from_config_async(self._config)
+        self.action_start(
+            f"{self.ADIM}_IMAP",
+            "Gmail IMAP ile OTP okunuyor",
+        )
+        try:
+            otp = await fetch_vfs_otp_from_config_async(self._config)
+        except Exception as e:
+            self.action_done(
+                f"{self.ADIM}_IMAP",
+                "IMAP okuma hatasi",
+                basarili=False,
+                hata=str(e),
+            )
+            raise
         if otp:
-            self._log.info("Gmail OTP alindi.")
+            self.action_done(
+                f"{self.ADIM}_IMAP",
+                "IMAP sorgusu bitti, OTP var",
+                basarili=True,
+                karakter=len(otp),
+            )
         else:
-            self._log.warning("Gmail OTP alinamadi (timeout veya eslesme yok).")
+            self.action_done(
+                f"{self.ADIM}_IMAP",
+                "IMAP sorgusu bitti, OTP yok",
+                basarili=True,
+                otp_bulundu=False,
+            )
         return otp

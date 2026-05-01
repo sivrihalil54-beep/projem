@@ -6,5 +6,6 @@
 /web/node_modules
 /web/dist
 backend/data/*.db
+backend/data/*.log
 __pycache__/
 *.pyc

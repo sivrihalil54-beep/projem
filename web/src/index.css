@@ -57,6 +57,16 @@ button.secondary {
   background: #475569;
 }
 
+button.primary-outline {
+  background: #fff;
+  color: #2563eb;
+  border: 2px solid #2563eb;
+}
+
+button.danger {
+  background: #b91c1c;
+}
+
 button:disabled {
   opacity: 0.55;
   cursor: not-allowed;
@@ -72,6 +82,11 @@ button:disabled {
   gap: 0.5rem;
   flex-wrap: wrap;
   margin-top: 0.75rem;
+}
+
+.list-item .row-actions {
+  margin-top: 0;
+  justify-content: flex-end;
 }
 
 .err {
@@ -106,4 +121,97 @@ button:disabled {
   color: #166534;
   padding: 0.15rem 0.45rem;
   border-radius: 4px;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.tabs .tab {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.tabs .tab.active {
+  background: #2563eb;
+  color: #fff;
+}
+
+.section-title {
+  font-size: 1rem;
+  margin: 0 0 0.75rem;
+}
+
+.small-meta {
+  font-size: 0.78rem;
+  margin-top: 0.2rem;
+}
+
+.bulk-area {
+  width: 100%;
+  font-family: ui-monospace, monospace;
+  font-size: 0.85rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 0.75rem;
+}
+
+.col-layout {
+  flex-direction: column;
+  align-items: stretch !important;
+}
+
+@media (min-width: 640px) {
+  .col-layout {
+    flex-direction: row;
+    align-items: center !important;
+  }
+}
+
+.list.wide {
+  max-width: 900px;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem 1rem;
+  z-index: 50;
+  overflow-y: auto;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.modal h3 {
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+}
+
+.modal label {
+  margin-top: 0.35rem;
+}
+
+.modal input,
+.modal select {
+  margin-bottom: 0.5rem;
+}
+
+.grow {
+  flex: 1;
+  min-width: 0;
 }

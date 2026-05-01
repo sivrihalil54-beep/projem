@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:all": "concurrently -k -n api,web -c blue,magenta \"./venv/bin/python -m uvicorn backend.main:app --host 127.0.0.1 --port 8000\" \"npm run dev --prefix web\""
   },
   "keywords": [],
   "author": "",
@@ -12,5 +13,8 @@
   "dependencies": {
     "git": "^0.1.5",
     "playwright": "^1.59.1"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   }
 }
