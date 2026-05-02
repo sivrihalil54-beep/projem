@@ -1,0 +1,108 @@
+/**
+ * BLS Appointment / VisaType adımı — kaynak: bot_asamalari/step2:sehirsecimi.html
+ * (jurisdictionData, locationData, categoryData, visaIdData, visasubIdData).
+ * Panel ve bot bu listelerle site ile hizalı kalır.
+ */
+
+export type BlsJurisdiction = {
+  id: string
+  name: string
+  locationIds: readonly string[]
+}
+
+export type BlsLocation = {
+  id: string
+  name: string
+  code: string
+}
+
+export type BlsCategory = {
+  id: string
+  name: string
+  code: string
+}
+
+export type BlsVisaType = {
+  id: string
+  name: string
+  visaTypeCode: string
+  legalEntityId: string
+}
+
+export type BlsVisaSubtype = {
+  id: string
+  name: string
+  visaTypeId: string
+  code: string
+}
+
+export const BLS_STEP2_DATA = {"jurisdictions":[{"id":"86dbf4ea-1184-4356-b299-98b2f6392ca1","name":", Kars","locationIds":["6888","6891"]},{"id":"2af70d68-5fbc-447e-943c-198b6e212363","name":"Adana","locationIds":["6888"]},{"id":"78d631eb-7f27-4893-84c0-58f3474ae48d","name":"Adiyaman","locationIds":["6888","6891"]},{"id":"6be56ea8-54d1-4e8e-9151-cd67d4b0d9d6","name":"Afyonkarahisar","locationIds":["6888","6891"]},{"id":"3437ba81-e7d2-43f0-bd2b-d561d7d7384e","name":"Ağrı","locationIds":["6888","6891"]},{"id":"aa1d1caf-8864-43f7-80fa-0afff6cf80b2","name":"Aksaray","locationIds":["6888","6891"]},{"id":"8c016ff9-3271-4e61-b9ed-b59f5c7f8c8a","name":"Amasya","locationIds":["6888","6891"]},{"id":"101440bb-d331-406d-8ec8-6d30640625f5","name":"Ankara","locationIds":["6888","6891"]},{"id":"ceca1194-b7f1-4793-9331-168e4c0f8efe","name":"Antalya","locationIds":["6892","6893","6889"]},{"id":"d3d05f86-7cb4-4ec7-a966-a78b0e38330f","name":"Ardahan","locationIds":["6888","6891"]},{"id":"429816fe-d9d1-43d0-924e-86c106ed4f7a","name":"Artvin","locationIds":["6892","6893","6889"]},{"id":"f23caeff-706f-4cb8-9349-a0f2517a01ad","name":"Aydın","locationIds":["6892","6893","6889"]},{"id":"f23aaeff-706f-4cb8-9349-a0f2517a01aw","name":"Azerbaijan","locationIds":["6888"]},{"id":"b2d5bfb7-f279-4f06-aacd-59a564d0ca06","name":"Balikesir","locationIds":["6892","6893","6889"]},{"id":"cbcee423-f928-4e3e-81f3-69ca8ed6e218","name":"Bartin","locationIds":["6892","6893","6889"]},{"id":"1ca5420b-ee73-4958-936e-20fdfe0dbaf6","name":"Batman","locationIds":["6888","6891"]},{"id":"41b98012-790d-42cc-92bd-9218a65695f1","name":"Bayburt","locationIds":["6888","6891"]},{"id":"574e95dc-923b-49aa-bab2-3a96b8ffc518","name":"Bilecik","locationIds":["6892","6893","6889"]},{"id":"225c01bd-8e04-4f45-a75c-ef5d2d85aeff","name":"Bingöl","locationIds":["6888","6891"]},{"id":"a98650cb-4585-45cb-9621-1c8b0d7c8b15","name":"Bitlis","locationIds":["6888","6891"]},{"id":"5a2f0d80-6c56-47ae-8523-c6bcbbd134c9","name":"Bolu","locationIds":["6892","6893","6889"]},{"id":"07dac1e4-5376-4730-9442-4bfaf718022a","name":"Burdur","locationIds":["6892","6893","6889"]},{"id":"bb14ee9e-3da1-431d-a517-bd82a0b098de","name":"Bursa","locationIds":["6892","6893","6889"]},{"id":"e71eb6c3-740c-4327-a05f-dceea70b40df","name":"Canakkale","locationIds":["6892","6893","6889"]},{"id":"2f10007c-8c45-4d49-9ca6-53d4595f1b5a","name":"Çankırı","locationIds":["6888","6891"]},{"id":"0fe6abc7-5f1f-4d86-9500-819b63de7d2d","name":"Corum","locationIds":["6888","6891"]},{"id":"ef67395a-ac3a-446c-b427-764c4b905c8d","name":"Denizli","locationIds":["6892","6893","6889"]},{"id":"34e5bd3d-6ac7-4316-bc2c-68fd971d9ac1","name":"Diyarbakır","locationIds":["6888","6891"]},{"id":"69ce883d-85bc-49bd-b48c-6a782bc6cdff","name":"Düzce","locationIds":["6892","6893","6889"]},{"id":"9017ccab-99a7-4df2-b9e5-db35bb7e4745","name":"Edirne","locationIds":["6892","6893","6889"]},{"id":"e0e04edf-8b95-4569-a482-66f8abad1d28","name":"Elazig","locationIds":["6888","6891"]},{"id":"ef40b515-2146-46e7-aa29-fb4e027c9355","name":"Erzincan","locationIds":["6888","6891"]},{"id":"b993262a-6441-4421-a3ac-f13ae61cd541","name":"Erzurum","locationIds":["6888","6891"]},{"id":"e79b625c-b6b0-44f0-82e7-2f9b9fd43c72","name":"Eskisehir","locationIds":["6888","6891"]},{"id":"7716dc29-85bb-494f-b768-85d69a619c00","name":"Gaziantep","locationIds":["6888","6891"]},{"id":"f23caeff-706f-4cb8-9349-a0f2517a01at","name":"Georgia","locationIds":["6892"]},{"id":"1e63de20-d9ef-424d-9ef0-cc3caf89df5c","name":"Giresun","locationIds":["6892","6893","6889"]},{"id":"776f378c-7cb9-446b-85a4-ee569a414463","name":"Gümüşhane","locationIds":["6888","6891"]},{"id":"37cd188d-33a6-41f1-8c08-bd0bab3efb2e","name":"Hakkari","locationIds":["6888","6891"]},{"id":"a6bf29cc-6297-4937-8426-076db229cd77","name":"Hatay","locationIds":["6888","6891"]},{"id":"840e5022-5f87-4662-8d08-1a797f78a681","name":"Igdir","locationIds":["6888","6891"]},{"id":"1daab6a5-d1bc-4584-b7bf-c022bee7fb6c","name":"Isparta","locationIds":["6892","6893","6889"]},{"id":"62cc4832-e928-4ebc-9319-666ce701d5ea","name":"Istanbul","locationIds":["6892","6893","6889"]},{"id":"74da0fd8-5491-4fdf-a166-9bd4514aeb3d","name":"Izmir","locationIds":["6892","6893","6889"]},{"id":"3b504dd3-01e3-40d0-ba52-71e38bea3687","name":"Kahramanmaras","locationIds":["6888","6891"]},{"id":"7de4d11a-09cf-4f64-a91b-2d9f78e89c63","name":"Karabuk","locationIds":["6892","6893","6889"]},{"id":"29060d84-c15c-490a-a86d-6c7dd0d266e7","name":"Karaman","locationIds":["6888","6891"]},{"id":"966ca749-6399-4f98-b2df-16befe258f50","name":"Kastamonu","locationIds":["6892","6893","6889"]},{"id":"d6fc6601-e132-4101-8355-4934d136d63d","name":"Kayseri","locationIds":["6888","6891"]},{"id":"13d61fc5-e695-40b9-95e2-15f8ab13a7c6","name":"Kilis","locationIds":["6888","6891"]},{"id":"429816fe-d9d1-43d0-924e-86c106ed4f7g","name":"Kirkuk","locationIds":["6888"]},{"id":"df009ae9-9613-4bc0-8ddc-bcec9d263cba","name":"Kırıkkale","locationIds":["6888","6891"]},{"id":"27c723be-9c43-44d0-8dfa-14fc949711fb","name":"Kırklareli","locationIds":["6892","6893","6889"]},{"id":"73034376-a673-4b6f-b9a3-6a07db8abf9d","name":"Kırşehir","locationIds":["6888","6891"]},{"id":"fe85a21f-04da-4dc1-b3a0-19d88090bcc0","name":"Kocaeli","locationIds":["6892","6893","6889"]},{"id":"5f1b95da-3117-4243-9a47-bc3330ac297f","name":"Konya","locationIds":["6888","6891"]},{"id":"80f0bee9-a542-4b09-81db-6b1dee88605d","name":"Kütahya","locationIds":["6888","6891"]},{"id":"a97df7e5-71a0-4f35-ba7c-a89ac3081b5e","name":"Malatya","locationIds":["6888","6891"]},{"id":"f91930a1-925c-4c8e-9d0d-deedad7f3392","name":"Manisa","locationIds":["6892","6893","6889"]},{"id":"b5181b15-f79e-4a3a-ba9d-57e9119ac97b","name":"Mardin","locationIds":["6888","6891"]},{"id":"2ec90789-e4b6-4ce1-bd5a-659e8cfa84a1","name":"Mersin","locationIds":["6888","6891"]},{"id":"1fcc22d1-335f-4024-82db-014073a6926d","name":"Muğla","locationIds":["6892","6893","6889"]},{"id":"c5cb543c-17a6-426c-881b-42837fa448d4","name":"Mus","locationIds":["6888","6891"]},{"id":"8cccd415-11cf-465b-beab-b17df5a0a018","name":"Nevşehir","locationIds":["6888","6891"]},{"id":"b95c3eba-ebcf-4af3-b261-374e0e445368","name":"Nigde","locationIds":["6888","6891"]},{"id":"f23caeff-706f-4cb8-9349-a0f2517a01aw","name":"North Cyprus","locationIds":["6888"]},{"id":"fd113a6c-cfa0-4547-8948-973b74a737ae","name":"Ordu","locationIds":["6892","6893","6889"]},{"id":"26315610-2d21-4878-94b0-c545e30b5572","name":"Osmaniye","locationIds":["6888","6891"]},{"id":"2e6f4eaf-62a1-4f39-9d15-1c4b08c9a77b","name":"Rize","locationIds":["6892","6893","6889"]},{"id":"3bc59357-1cd3-4164-a51d-4bcedee9649d","name":"Sakarya","locationIds":["6892","6893","6889"]},{"id":"cf20a83d-9b33-4505-9f29-356eb4398b79","name":"Samsun","locationIds":["6892","6893","6889"]},{"id":"ea0832e8-7e74-445b-8624-956dae8a081e","name":"Sanliurfa","locationIds":["6888","6891"]},{"id":"fb612a3b-80f6-4bc8-a084-8f7963db44fc","name":"Siirt","locationIds":["6888","6891"]},{"id":"b5cb809b-bdb7-4c4b-ad10-f45b1e2be60c","name":"Sinop","locationIds":["6892","6893","6889"]},{"id":"e068a680-2b28-4959-8e0f-dec4c2efd873","name":"Sirnak","locationIds":["6888","6891"]},{"id":"72479457-0699-4f68-87da-c29f97ea7014","name":"Sivas","locationIds":["6888","6891"]},{"id":"fe61ba3d-2e57-41f6-9724-a19083d7b42d","name":"Tekirdag","locationIds":["6892","6893","6889"]},{"id":"90e7efd4-6793-440d-a7d8-4e421a7783db","name":"Tokat","locationIds":["6888","6891"]},{"id":"10540907-e784-46db-81fd-7fb0cfc41ad3","name":"Trabzon","locationIds":["6892","6893","6889"]},{"id":"73ce0aec-b51f-452b-844a-d9477c30cf89","name":"Tunceli","locationIds":["6888","6891"]},{"id":"07ba718e-c388-441b-8142-ef9bae1f47b6","name":"Uşak","locationIds":["6888","6891"]},{"id":"d937dd46-dce7-4c14-9a1b-d6551e5854bc","name":"Van","locationIds":["6888","6891"]},{"id":"ade34e36-1855-4cf1-8262-aa44c74e914c","name":"Yalova","locationIds":["6892","6893","6889"]},{"id":"bda67f38-9012-463d-801c-1861559365b8","name":"Yozgat","locationIds":["6888","6891"]},{"id":"863ce0e8-3acb-4112-8758-bf9ea191c00f","name":"Zonguldak - Istanmbul","locationIds":["6892","6893","6889"]}],"locations":[{"id":"6888","name":"Ankara","code":"ESB"},{"id":"6889","name":"Antalya","code":"AYT"},{"id":"6890","name":"Baku - Azerbaijan","code":"GYD"},{"id":"6891","name":"Gaziantep","code":"GZT"},{"id":"6892","name":"Istanbul","code":"IST"},{"id":"6893","name":"Izmir","code":"ADB"}],"categories":[{"id":"1784","name":"Doorstep Service","code":"DOORSTEP_SERVICE"},{"id":"1785","name":"Normal","code":"CATEGORY_NORMAL"},{"id":"1786","name":"Premium","code":"CATEGORY_PREMIUM"},{"id":"1787","name":"Prime Time","code":"PRIME_TIME"}],"visaTypes":[{"id":"4163","name":"Family Member of EU Citizen/EEA/EU Spouse","visaTypeCode":"FAMILY_VISA","legalEntityId":"6888"},{"id":"4164","name":"Family Member of EU Citizen/EEA/EU Spouse","visaTypeCode":"FAMILY_VISA","legalEntityId":"6892"},{"id":"4165","name":"Family Member of EU Citizen/EEA/EU Spouse","visaTypeCode":"FAMILY_VISA","legalEntityId":"6893"},{"id":"4166","name":"Family Member of EU Citizen/EEA/EU Spouse","visaTypeCode":"FAMILY_VISA","legalEntityId":"6889"},{"id":"4167","name":"Family Member of EU Citizen/EEA/EU Spouse","visaTypeCode":"FAMILY_VISA","legalEntityId":"6890"},{"id":"4168","name":"Family Member of EU Citizen/EEA/EU Spouse","visaTypeCode":"FAMILY_VISA","legalEntityId":"6891"},{"id":"4169","name":"National Visa/ Long Term Visa","visaTypeCode":"NATIONAL_VISA","legalEntityId":"6888"},{"id":"4170","name":"National Visa/ Long Term Visa","visaTypeCode":"NATIONAL_VISA","legalEntityId":"6893"},{"id":"4171","name":"National Visa/ Long Term Visa","visaTypeCode":"NATIONAL_VISA","legalEntityId":"6891"},{"id":"4172","name":"National Visa/ Long Term Visa","visaTypeCode":"NATIONAL_VISA","legalEntityId":"6892"},{"id":"4173","name":"National Visa/ Long Term Visa","visaTypeCode":"NATIONAL_VISA","legalEntityId":"6890"},{"id":"4174","name":"National Visa/ Long Term Visa","visaTypeCode":"NATIONAL_VISA","legalEntityId":"6889"},{"id":"4175","name":"Schengen Visa/ Short Term Visa","visaTypeCode":"SCHENGEN_VISA","legalEntityId":"6890"},{"id":"4176","name":"Schengen Visa/ Short Term Visa","visaTypeCode":"SCHENGEN_VISA","legalEntityId":"6888"},{"id":"4177","name":"Schengen Visa/ Short Term Visa","visaTypeCode":"SCHENGEN_VISA","legalEntityId":"6893"},{"id":"4178","name":"Schengen Visa/ Short Term Visa","visaTypeCode":"SCHENGEN_VISA","legalEntityId":"6889"},{"id":"4179","name":"Schengen Visa/ Short Term Visa","visaTypeCode":"SCHENGEN_VISA","legalEntityId":"6891"},{"id":"4180","name":"Schengen Visa/ Short Term Visa","visaTypeCode":"SCHENGEN_VISA","legalEntityId":"6892"}],"visaSubtypes":[{"id":"7244","name":"Buisness Visa","visaTypeId":"4175","code":"WEB_BLS"},{"id":"7245","name":"Business Visa","visaTypeId":"4180","code":"WEB_BLS"},{"id":"7246","name":"Business Visa","visaTypeId":"4178","code":"WEB_BLS"},{"id":"7247","name":"Business Visa","visaTypeId":"4176","code":"WEB_BLS"},{"id":"7248","name":"Business Visa","visaTypeId":"4177","code":"WEB_BLS"},{"id":"7249","name":"Business Visa","visaTypeId":"4179","code":"WEB_BLS"},{"id":"7250","name":"Conference and Congress Visa","visaTypeId":"4180","code":"WEB_BLS"},{"id":"7251","name":"Conference and Congress Visa","visaTypeId":"4178","code":"WEB_BLS"},{"id":"7252","name":"Conference and Congress Visa","visaTypeId":"4177","code":"WEB_EMBASSY"},{"id":"7253","name":"Cultural Visa","visaTypeId":"4177","code":"WEB_BLS"},{"id":"7254","name":"Cultural Visa","visaTypeId":"4179","code":"WEB_BLS"},{"id":"7255","name":"Cultural Visa","visaTypeId":"4175","code":"WEB_BLS"},{"id":"7256","name":"Cultural Visa","visaTypeId":"4176","code":"WEB_BLS"},{"id":"7257","name":"Cultural Visa","visaTypeId":"4180","code":"WEB_BLS"},{"id":"7258","name":"Cultural Visa","visaTypeId":"4178","code":"WEB_BLS"},{"id":"7259","name":"Eea/Eu Spouse Visa","visaTypeId":"4179","code":"WEB_BLS"},{"id":"7260","name":"Eea/Eu Spouse Visa","visaTypeId":"4178","code":"WEB_BLS"},{"id":"7261","name":"Eea/Eu Spouse Visa","visaTypeId":"4177","code":"WEB_BLS"},{"id":"7262","name":"Eea/Eu Spouse Visa","visaTypeId":"4176","code":"WEB_BLS"},{"id":"7263","name":"Eea/Eu Spouse Visa","visaTypeId":"4175","code":"WEB_BLS"},{"id":"7264","name":"Eea/Eu Spouse Visa","visaTypeId":"4180","code":"WEB_BLS"},{"id":"7265","name":"Family Member of EU Citizen/EEA/EU Spouse","visaTypeId":"4163","code":"WEB_BLS"},{"id":"7266","name":"Family Member of EU Citizen/EEA/EU Spouse","visaTypeId":"4165","code":"WEB_BLS"},{"id":"7267","name":"Family Member of EU Citizen/EEA/EU Spouse","visaTypeId":"4164","code":"WEB_BLS"},{"id":"7268","name":"Family Member of EU Citizen/EEA/EU Spouse","visaTypeId":"4167","code":"WEB_BLS"},{"id":"7269","name":"Family Member of EU Citizen/EEA/EU Spouse","visaTypeId":"4166","code":"WEB_BLS"},{"id":"7270","name":"Family Member of EU Citizen/EEA/EU Spouse","visaTypeId":"4168","code":"WEB_BLS"},{"id":"7271","name":"Family or Friend Visit ","visaTypeId":"4177","code":"WEB_BLS"},{"id":"7272","name":"Family or Friend Visit ","visaTypeId":"4180","code":"WEB_BLS"},{"id":"7273","name":"Family or Friend Visit ","visaTypeId":"4178","code":"WEB_BLS"},{"id":"7274","name":"Family Reunion Visa","visaTypeId":"4170","code":"WEB_BLS"},{"id":"7275","name":"Family Reunion Visa","visaTypeId":"4171","code":"WEB_BLS"},{"id":"7276","name":"Family Reunion Visa","visaTypeId":"4173","code":"WEB_BLS"},{"id":"7277","name":"Family Reunion Visa","visaTypeId":"4169","code":"WEB_BLS"},{"id":"7278","name":"Family Reunion Visa","visaTypeId":"4174","code":"WEB_BLS"},{"id":"7279","name":"Family Reunion Visa","visaTypeId":"4172","code":"WEB_BLS"},{"id":"7280","name":"National Visa (More than 90 days)","visaTypeId":"4174","code":"WEB_BLS"},{"id":"7281","name":"National Visa (More than 90 days)","visaTypeId":"4169","code":"WEB_BLS"},{"id":"7282","name":"National Visa (More than 90 days)","visaTypeId":"4172","code":"WEB_BLS"},{"id":"7283","name":"National Visa (More than 90 days)","visaTypeId":"4170","code":"WEB_BLS"},{"id":"7284","name":"National Visa (More than 90 days)","visaTypeId":"4173","code":"WEB_BLS"},{"id":"7285","name":"National Visa (More than 90 days)","visaTypeId":"4171","code":"WEB_BLS"},{"id":"7286","name":"Student Visa","visaTypeId":"4176","code":"WEB_BLS"},{"id":"7287","name":"Student Visa","visaTypeId":"4179","code":"WEB_BLS"},{"id":"7288","name":"Student Visa","visaTypeId":"4180","code":"WEB_BLS"},{"id":"7289","name":"Student Visa","visaTypeId":"4178","code":"WEB_BLS"},{"id":"7290","name":"Student Visa","visaTypeId":"4177","code":"WEB_BLS"},{"id":"7291","name":"Student Visa","visaTypeId":"4175","code":"WEB_BLS"},{"id":"7292","name":"Student Visa (More than 90 days)","visaTypeId":"4169","code":"WEB_BLS"},{"id":"7293","name":"Student Visa (More than 90 days)","visaTypeId":"4172","code":"WEB_BLS"},{"id":"7294","name":"Student Visa (More than 90 days)","visaTypeId":"4174","code":"WEB_BLS"},{"id":"7295","name":"Student Visa (More than 90 days)","visaTypeId":"4171","code":"WEB_BLS"},{"id":"7296","name":"Student Visa (More than 90 days)","visaTypeId":"4170","code":"WEB_BLS"},{"id":"7297","name":"Student Visa (More than 90 days)","visaTypeId":"4173","code":"WEB_BLS"},{"id":"7298","name":"Tourist Visa","visaTypeId":"4178","code":"WEB_BLS"},{"id":"7299","name":"Tourist Visa","visaTypeId":"4176","code":"WEB_BLS"},{"id":"7300","name":"Tourist Visa","visaTypeId":"4177","code":"WEB_BLS"},{"id":"7301","name":"Tourist Visa","visaTypeId":"4175","code":"WEB_BLS"},{"id":"7302","name":"Tourist Visa","visaTypeId":"4179","code":"WEB_BLS"},{"id":"7303","name":"Tourist Visa","visaTypeId":"4180","code":"WEB_BLS"},{"id":"7304","name":"Transit by sea","visaTypeId":"4178","code":"WEB_BLS"},{"id":"7305","name":"Transit by sea","visaTypeId":"4177","code":"WEB_BLS"},{"id":"7306","name":"Transit by sea","visaTypeId":"4175","code":"WEB_BLS"},{"id":"7307","name":"Transit by sea","visaTypeId":"4180","code":"WEB_BLS"},{"id":"7308","name":"Transit by sea","visaTypeId":"4179","code":"WEB_BLS"},{"id":"7309","name":"Transit by sea","visaTypeId":"4176","code":"WEB_BLS"},{"id":"7310","name":"Transit Visa","visaTypeId":"4179","code":"WEB_BLS"},{"id":"7311","name":"Transit Visa","visaTypeId":"4176","code":"WEB_BLS"},{"id":"7312","name":"Transit Visa","visaTypeId":"4175","code":"WEB_BLS"}]} as const
+
+export const BLS_JURISDICTIONS: readonly BlsJurisdiction[] = BLS_STEP2_DATA.jurisdictions
+export const BLS_LOCATIONS: readonly BlsLocation[] = BLS_STEP2_DATA.locations
+export const BLS_CATEGORIES: readonly BlsCategory[] = BLS_STEP2_DATA.categories
+export const BLS_VISA_TYPES: readonly BlsVisaType[] = BLS_STEP2_DATA.visaTypes
+export const BLS_VISA_SUBTYPES: readonly BlsVisaSubtype[] = BLS_STEP2_DATA.visaSubtypes
+
+/**
+ * Yetki alani id ile tek kayit.
+ *
+ * @param id - Yetki alani UUID
+ * @returns Bulunamazsa undefined
+ */
+export function jurisdictionById(id: string): BlsJurisdiction | undefined {
+  return BLS_JURISDICTIONS.find((j) => j.id === id)
+}
+
+/** @param jurisdictionId - Yetki alani UUID */
+export function locationsForJurisdiction(jurisdictionId: string): BlsLocation[] {
+  const j = jurisdictionById(jurisdictionId)
+  if (!j) return []
+  const allow = new Set(j.locationIds)
+  return BLS_LOCATIONS.filter((loc) => allow.has(loc.id))
+}
+
+/** @param id - Lokasyon id (ornek "6892") */
+export function locationById(id: string): BlsLocation | undefined {
+  return BLS_LOCATIONS.find((l) => l.id === id)
+}
+
+/** @param code - Kategori kodu (ornek CATEGORY_NORMAL) */
+export function categoryByCode(code: string): BlsCategory | undefined {
+  return BLS_CATEGORIES.find((c) => c.code === code)
+}
+
+/** @param locationId - Lokasyon id; legalEntityId ile eslesen vize tipleri */
+export function visaTypesForLocation(locationId: string): BlsVisaType[] {
+  return BLS_VISA_TYPES.filter((v) => v.legalEntityId === locationId)
+}
+
+/**
+ * @param visaTypeId - Vize tipi id
+ * @param locationId - Lokasyon id (tutarlilik kontrolu)
+ */
+export function visaSubtypesForVisaType(visaTypeId: string, locationId: string): BlsVisaSubtype[] {
+  const ok = BLS_VISA_TYPES.some((v) => v.id === visaTypeId && v.legalEntityId === locationId)
+  if (!ok) return []
+  return BLS_VISA_SUBTYPES.filter((s) => s.visaTypeId === visaTypeId)
+}
+
+/** @param id - Alt vize id */
+export function subtypeById(id: string): BlsVisaSubtype | undefined {
+  return BLS_VISA_SUBTYPES.find((s) => s.id === id)
+}
+
+/**
+ * Arama kutusu icin yetki alani listesi (Turkce ayrimsiz kucuk harf).
+ *
+ * @param query - Kullanici metni; bos ise tum liste
+ * @returns Eslesen yetki alanlari
+ */
+export function filterJurisdictionsQuery(query: string): BlsJurisdiction[] {
+  const needle = query.trim().toLowerCase().normalize('NFD').replace(/\p{M}/gu, '')
+  if (!needle) return [...BLS_JURISDICTIONS]
+  return BLS_JURISDICTIONS.filter((j) => {
+    const hay = j.name.toLowerCase().normalize('NFD').replace(/\p{M}/gu, '')
+    return hay.includes(needle)
+  })
+}

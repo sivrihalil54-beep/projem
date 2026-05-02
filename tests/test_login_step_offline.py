@@ -14,7 +14,11 @@ STEP0 = Path(__file__).resolve().parent.parent / "bot_asamalari" / "step0.html"
 
 
 @pytest.mark.asyncio
-async def test_login_step_fills_at_least_one_visible_email() -> None:
+async def test_login_step_fills_at_least_one_visible_email(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    # Offline HTML: captcha adimi submit_form=False ile yok
+
     assert STEP0.is_file(), f"Eksik: {STEP0}"
     url = STEP0.as_uri()
     creds = LoginCredentials(email="integration@test.local", password="", login_url=url)

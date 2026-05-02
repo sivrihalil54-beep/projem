@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   font-family: system-ui, sans-serif;
   line-height: 1.45;
@@ -33,6 +37,19 @@ label {
   font-weight: 600;
   margin-bottom: 0.25rem;
   color: #444;
+}
+
+label.row-inline {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  margin-top: 0.35rem;
+}
+
+label.row-inline input[type='checkbox'] {
+  width: auto;
+  margin: 0;
 }
 
 input {
@@ -77,6 +94,11 @@ button:disabled {
   color: #64748b;
 }
 
+.warn-inline {
+  color: #b45309;
+  font-weight: 600;
+}
+
 .row-actions {
   display: flex;
   gap: 0.5rem;
@@ -92,6 +114,21 @@ button:disabled {
 .err {
   color: #b91c1c;
   font-size: 0.85rem;
+}
+
+.err-banner-critical {
+  background: #fef2f2;
+  padding: 0.65rem 0.85rem;
+  border-radius: 8px;
+  border: 1px solid #fecaca;
+  font-weight: 600;
+  color: #991b1b;
+}
+
+.dark .err-banner-critical {
+  background: rgba(127, 29, 29, 0.25);
+  border-color: rgba(248, 113, 113, 0.45);
+  color: #fecaca;
 }
 
 .ok {
@@ -143,6 +180,39 @@ button:disabled {
 .section-title {
   font-size: 1rem;
   margin: 0 0 0.75rem;
+}
+
+.bot-output-card {
+  max-width: min(960px, 100%);
+  margin-top: 1rem;
+}
+
+.bot-output-head {
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.bot-output-title {
+  margin: 0;
+  font-size: 1rem;
+  flex: 1 1 auto;
+}
+
+.bot-log-pre {
+  max-height: min(40vh, 380px);
+  overflow: auto;
+  font-family: ui-monospace, 'Cascadia Code', 'Consolas', monospace;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  background: #1e293b;
+  color: #e2e8f0;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin: 0.5rem 0 0;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .small-meta {
